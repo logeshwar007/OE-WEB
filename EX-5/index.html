@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kongu Engineering College</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      color: #333;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      background-color: #004d40;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      border-radius: 5px;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      background-color: #26a69a;
+    }
+
+    /* Section Styling */
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+      color: #00695c;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #004d40;
+      padding-bottom: 5px;
+    }
+
+    section p {
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    /* Grid Layout for Departments */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .grid div {
+      background-color: #e0f2f1;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .grid div:hover {
+      transform: scale(1.05);
+    }
+
+    /* Registration Form */
+    form {
+      background-color: #f1f8e9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .gender-options {
+      margin-top: 5px;
+    }
+
+    .gender-options input {
+      margin-right: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #004d40;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1em;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #26a69a;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #004d40;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #b2dfdb;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#departments">Departments</a>
+    <a href="#registration">Register</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h2>Welcome to Kongu Engineering College</h2>
+    <p>KEC is one of the premier institutions in Tamil Nadu, known for academic excellence and vibrant campus life.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About</h2>
+    <p>Kongu Engineering College is located in Perundurai, Erode. It offers quality education in engineering and technology.</p>
+  </section>
+
+  <!-- Departments Section -->
+  <section id="departments">
+    <h2>Departments</h2>
+    <div class="grid">
+      <div>Computer Science and Engineering</div>
+      <div>Electronics and Communication Engineering</div>
+      <div>Electrical and Electronics Engineering</div>
+      <div>Mechanical Engineering</div>
+      <div>Civil Engineering</div>
+    </div>
+  </section>
+
+  <!-- Registration Section -->
+  <section id="registration">
+    <h2>Online Registration</h2>
+    <p>Please fill out the form below to register for the upcoming KEC event.</p>
+
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label>Gender</label>
+      <div class="gender-options">
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label>
+      </div>
+
+      <label for="department">Department</label>
+      <select id="department" name="department" required>
+        <option value="">Select</option>
+        <option value="CSE">Computer Science</option>
+        <option value="ECE">Electronics</option>
+        <option value="EEE">Electrical</option>
+        <option value="MECH">Mechanical</option>
+        <option value="CIVIL">Civil</option>
+      </select>
+
+      <label for="year">Year of Study</label>
+      <select id="year" name="year" required>
+        <option value="">Select</option>
+        <option value="1">First Year</option>
+        <option value="2">Second Year</option>
+        <option value="3">Third Year</option>
+        <option value="4">Fourth Year</option>
+      </select>
+
+      <input type="submit" value="Register">
+    </form>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: info@kongu.edu</p>
+    <p>Phone: +91-4294-226555</p>
+    <p>Address: Perundurai, Erode, Tamil Nadu - 638060</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Kongu Engineering College</p>
+    <p>
+      <a href="#">Facebook</a> |
+      <a href="#">Twitter</a> |
+      <a href="#">LinkedIn</a>
+    </p>
+  </footer>
+
+</body>
+</html>
