@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Kongu Engineering College</title>
   <style>
-    /* Reset and base styles */
     * {
       margin: 0;
       padding: 0;
@@ -12,39 +11,41 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
       color: #333;
     }
 
     /* Navigation Bar */
     .navbar {
       background-color: #004d40;
-      overflow: hidden;
       display: flex;
       justify-content: center;
-      padding: 10px 0;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .navbar a {
       color: white;
-      padding: 14px 20px;
       text-decoration: none;
-      text-transform: uppercase;
+      padding: 10px 20px;
       font-weight: bold;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s ease;
+      border-radius: 5px;
     }
 
-    .navbar a:hover {
+    .navbar a:hover,
+    .navbar a.active {
       background-color: #26a69a;
-      border-radius: 5px;
     }
 
     /* Section Styling */
     section {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 40px auto;
-      background-color: white;
+      background-color: #ffffff;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -62,22 +63,77 @@
       margin-bottom: 10px;
     }
 
-    /* Responsive Design */
+    /* Grid Layout for Departments */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .grid div {
+      background-color: #e0f2f1;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .grid div:hover {
+      transform: scale(1.05);
+    }
+
+    /* Contact Form Styling */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .contact-form input[type="submit"] {
+      background-color: #004d40;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form input[type="submit"]:hover {
+      background-color: #26a69a;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #004d40;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #b2dfdb;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
     @media (max-width: 768px) {
       .navbar {
         flex-direction: column;
-        align-items: center;
       }
 
-      .navbar a {
-        display: block;
-        width: 100%;
-        text-align: center;
-      }
-
-      section {
-        margin: 20px;
-        padding: 20px;
+      .grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -86,7 +142,7 @@
 
   <!-- Navigation Bar -->
   <div class="navbar">
-    <a href="#home">Home</a>
+    <a href="#home" class="active">Home</a>
     <a href="#about">About</a>
     <a href="#departments">Departments</a>
     <a href="#contact">Contact</a>
@@ -105,22 +161,34 @@
 
   <section id="departments">
     <h2>Departments</h2>
-    <p>We offer programs in:</p>
-    <ul>
-      <li>Computer Science and Engineering</li>
-      <li>Electronics and Communication Engineering</li>
-      <li>Electrical and Electronics Engineering</li>
-      <li>Mechanical Engineering</li>
-      <li>Civil Engineering</li>
-    </ul>
+    <div class="grid">
+      <div>Computer Science and Engineering</div>
+      <div>Electronics and Communication Engineering</div>
+      <div>Electrical and Electronics Engineering</div>
+      <div>Mechanical Engineering</div>
+      <div>Civil Engineering</div>
+    </div>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: info@kongu.edu</p>
-    <p>Phone: +91-4294-226555</p>
-    <p>Address: Perundurai, Erode, Tamil Nadu - 638060</p>
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <input type="submit" value="Send Message">
+    </form>
   </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Kongu Engineering College</p>
+    <p>
+      <a href="#">Facebook</a> |
+      <a href="#">Twitter</a> |
+      <a href="#">LinkedIn</a>
+    </p>
+  </footer>
 
 </body>
 </html>
